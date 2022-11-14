@@ -362,33 +362,28 @@ namespace MyNamespace
             }
 
             //Redo
+            public void redo(){
+                if(redoHistory.Count > 0){
+                    undoStates.Add(redoHistory[redoHistory.Count - 1]);
+                    redoHistory.RemoveAt(redoHistory.Count - 1);
+                }
+            
+            }
 
-            void addMenento(Memento data)
-
-            {
-
-                shape.Add(data);
-
+            //Add
+            public void addMenento(Memento newshape){
+                shape.Add(newshape);
             }
 
             //Undo
-
-            // void removeMenento()
-
-            // {
-
-            //     //Memento redoItem = this.shapeHistory.Pop();
-
-            //     this.redoHistory.Add(redoItem);
-
-            // }
-
-            string getMenento(int i)
-
+            void removeMenento()
             {
-
-                this.undoStates.get[i];
-
+                Memento redoItem = this.shapeHistory.Pop();
+                this.redoHistory.Add(redoItem);
+            }
+            //Get Mememto
+            public Memento getMemento(int index){
+                return undoStates[index];
             }
 
             public List<Memento> getUndoStates()
@@ -426,8 +421,6 @@ namespace MyNamespace
 
             bool exit = false;
 
-            int zIndexTotal = canvas.Count;
-
             Console.Clear();
 
             while (exit == false)
@@ -444,39 +437,81 @@ namespace MyNamespace
 
                 // }
 
-                Console.WriteLine("Choose command below: ");
+                Console.WriteLine("Canvas created - use commands to add shapes to canvas");
+                
+                char command = char.Parse(Console.ReadLine());
 
-                Console.WriteLine("0): Exit");
+                if(command == 'H'){
+                    Console.WriteLine("Commands: H	 	 Help	-	displays	this	message  \nA	<shape>	 Add	<shape	to	canvas	  \n D   - Display Canvas \nU	 	 Undo	last	operation	 \n R	 	 Redo	last	operation	 \n C	 	 Clear	canvas	 \n Q	 	 Quit	application");
+                }
+                else if(command == 'A'){
+                    //Add shape
+                    Console.WriteLine("Enter shape type: R for rectangle, C for circle, L for line, P for polygon, S for polyline, or T for path");
+                    char shapeType = char.Parse(Console.ReadLine());
 
-                Console.WriteLine("1): Create Rectangle");
+                }
+                else if(command == 'U'){
+                    //undo last operation
+                    canvas1.removeMenento();
+                    Console.WriteLine("Undo last operation");
 
-                Console.WriteLine("2): Create Circle");
+                }
+                else if(command == 'D'){
+                    Console.WriteLine(for(int i = 0; i < canvas1.getUndoStates().Count; i++){
+                        Console.WriteLine(canvas1.getUndoStates()[i]);
+                    });
+                }
+                else if(command == 'R'){
+                    //Redo last operation
+                    canvas1.redo();
+                    Console.WriteLine("Redo last operation");
 
-                Console.WriteLine("3): Create Ellipse");
+                }
+                else if(command == 'C'){
+                    //Clear canvas
+                    canvas.Clear();
+                }
+                else if(command == 'S'){
+                    //Save canvas
+                    Console.WriteLine("Save canvas");
 
-                Console.WriteLine("4): Create Line");
+                }
+                else if(command == 'Q'){
+                       break;
+                       Console.WriteLine("Quit application");
+                }
 
-                Console.WriteLine("5): Create Polyline");
+                // Console.WriteLine("0): Exit");
 
-                Console.WriteLine("6): Create Polygon");
+                // Console.WriteLine("1): Create Rectangle");
 
-                Console.WriteLine("7): Create Path");
+                // Console.WriteLine("2): Create Circle");
 
-                Console.WriteLine("8): Done and Export to SVG?");
+                // Console.WriteLine("3): Create Ellipse");
 
-                Console.WriteLine("9): Delete Shape");
+                // Console.WriteLine("4): Create Line");
 
-                Console.WriteLine("10): Modify Shape");
+                // Console.WriteLine("5): Create Polyline");
 
-                Console.WriteLine("11): Move shapes's");
+                // Console.WriteLine("6): Create Polygon");
 
-                Console.WriteLine("12): Change Shape Color DOESN'T WORK");
+                // Console.WriteLine("7): Create Path");
 
-                Console.WriteLine("13): Show List of Shapes");
+                // Console.WriteLine("8): Done and Export to SVG?");
 
-                Console.WriteLine("14): Undo");
+                // Console.WriteLine("9): Delete Shape");
 
-                int choice = int.Parse(Console.ReadLine());
+                // Console.WriteLine("10): Modify Shape");
+
+                // Console.WriteLine("11): Move shapes's");
+
+                // Console.WriteLine("12): Change Shape Color DOESN'T WORK");
+
+                // Console.WriteLine("13): Show List of Shapes");
+
+                // Console.WriteLine("14): Undo");
+
+                // int choice = int.Parse(Console.ReadLine());
 
                 //Create Rectangle
 
