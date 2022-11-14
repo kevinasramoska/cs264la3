@@ -190,7 +190,6 @@ namespace MyNamespace
             public canvas(){
                 undoStates = new List<Memento>();
                 redoHistory = new List<Memento>();
-                
             }
             //Redo
             public void redo(){
@@ -226,11 +225,10 @@ namespace MyNamespace
             Console.WriteLine( canvas.getUndoStates());
 )
            
-            List<string> canvas = new List<string>();
+            
             string svgOpen = @"<svg height=""400"" width=""400"" xmlns=""http://www.w3.org/2000/svg"">" + Environment.NewLine;
             string svgClose = Environment.NewLine + @"</svg>";
-            canvas.Add(svgOpen);
-            Console.WriteLine("Would you like to create, delete, or modify a shape?");
+            canvas1.addMenento(new Rectangle(10, 10, 100, 100));
             // Console.WriteLine(" Functonality to set default line and fill styles for individual shape types, for example, default rectangles are grey with black 1pt solid line borders");
             bool exit = false;
             Console.Clear();
@@ -251,6 +249,48 @@ namespace MyNamespace
                     //Add shape
                     Console.WriteLine("Enter shape type: R for rectangle, C for circle, L for line, P for polygon, S for polyline, or T for path");
                     char shapeType = char.Parse(Console.ReadLine());
+                    if(shapeType == 'R'){
+                        //Rectangle
+                        Console.WriteLine("Enter x coordinate");
+                        int x = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter y coordinate");
+                        int y = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter width");
+                        int width = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter height");
+                        int height = int.Parse(Console.ReadLine());
+                        Rectangle rectangle = new Rectangle(x, y, width, height);
+                        canvas.Add(rectangle.ToString());
+                        Console.WriteLine("Rectangle added to canvas");
+                    }
+                    else if(shapeType == 'C'){
+                        //Circle
+                        Console.WriteLine("Enter x coordinate");
+                        int x = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter y coordinate");
+                        int y = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter radius");
+                        int radius = int.Parse(Console.ReadLine());
+                        Circle circle = new Circle(x, y, radius);
+
+                        canvas1.addMenento(circle.ToString());
+                        Console.WriteLine("Circle added to canvas");
+                    }
+                    else if(shapeType == 'L'){
+                        //Line
+                        Console.WriteLine("Enter x1 coordinate");
+                        int x1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter y1 coordinate");
+                        int y1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter x2 coordinate");
+                        int x2 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter y2 coordinate");
+                        int y2 = int.Parse(Console.ReadLine());
+                        Line line = new Line(x1, y1, x2, y2);
+                        canvas1.addMenento(line.ToString());
+                        Console.WriteLine("Line added to canvas");
+                    }
+
                 }
                 else if(command == 'U'){
                     //undo last operation
@@ -274,6 +314,7 @@ namespace MyNamespace
                 else if(command == 'S'){
                     //Save canvas
                     Console.WriteLine("Save canvas");
+                    
                 }
                 else if(command == 'Q'){
                        break;
