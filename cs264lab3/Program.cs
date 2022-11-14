@@ -383,13 +383,18 @@ namespace MyNamespace
 
             // }
 
-            // string getMenento(int i)
+            string getMenento(int i)
 
-            // {
+            {
 
-            //     this.history[i];
+                this.undoStates.get[i];
 
-            // }
+            }
+
+            public List<Memento> getUndoStates()
+            {
+                return this.undoStates;
+            }
 
         }
 
@@ -403,14 +408,10 @@ namespace MyNamespace
 
         {
 
-            Memento memento = new Memento(shape);
-
-            
-
- 
-
- 
-
+            canvas canvas1 = new canvas();
+            Console.WriteLine( canvas.getUndoStates());
+)
+           
             List<string> canvas = new List<string>();
 
             string svgOpen = @"<svg height=""400"" width=""400"" xmlns=""http://www.w3.org/2000/svg"">" + Environment.NewLine;
@@ -501,7 +502,7 @@ namespace MyNamespace
 
                     Memento memento = new Memento(rect.ToString);
  
-                    undoStates.Add(memento);
+                    canvas1.addMenento(new Memento(rect.ToString()));
 
                 }
 
