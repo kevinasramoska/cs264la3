@@ -223,7 +223,6 @@ namespace MyNamespace
         {
             canvas canvas1 = new canvas();
             Console.WriteLine( canvas.getUndoStates());
-)
            
             
             string svgOpen = @"<svg height=""400"" width=""400"" xmlns=""http://www.w3.org/2000/svg"">" + Environment.NewLine;
@@ -314,7 +313,7 @@ namespace MyNamespace
                 else if(command == 'S'){
                     //Save canvas
                     Console.WriteLine("Save canvas");
-                    
+
                 }
                 else if(command == 'Q'){
                        break;
