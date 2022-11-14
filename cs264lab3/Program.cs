@@ -349,13 +349,16 @@ namespace MyNamespace
 
         }
     }
-    
-    // This is canvas class
+    // https://www.letsdevelopgames.com/2022/01/memento-design-pattern-for-undoredo.html?m=1
+    // This is caretaker class
         class canvas{
             List<Memento> undoStates = new List<Memento>();
             List<Memento> redoHistory = new List<Memento>();
 
             public canvas(){
+                undoStates = new List<Memento>();
+                redoHistory = new List<Memento>();
+                
             }
 
             //Redo
