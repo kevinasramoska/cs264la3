@@ -249,17 +249,13 @@ namespace MyNamespace
                     char shapeType = char.Parse(Console.ReadLine());
                     if(shapeType == 'R'  || shapeType == 'r'){
                         //Rectangle
-                        // Console.WriteLine("Enter x coordinate");
-                        // int x = int.Parse(Console.ReadLine());
-                        // Console.WriteLine("Enter y coordinate");
-                        // int y = int.Parse(Console.ReadLine());
-                        // Console.WriteLine("Enter width");
-                        // int width = int.Parse(Console.ReadLine());
-                        // Console.WriteLine("Enter height");
-                        // int height = int.Parse(Console.ReadLine());
-                        // Rectangle rectangle = new Rectangle(x, y, width);
-                        // canvas1.addMenento(new Memento(rectangle.ToString()));
-                        // Console.WriteLine("Rectangle added to canvas");
+                        Console.WriteLine("Enter x coordinate");
+                        int x = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter y coordinate");
+                        int y = int.Parse(Console.ReadLine());
+                        Rectangle rectangle = new Rectangle(x, y);
+                        canvas1.addMenento(new Memento(rectangle.ToString()));
+                        Console.WriteLine("Rectangle added to canvas");
                     }
                     else if(shapeType == 'C' || shapeType == 'c'){
                         //Circle
@@ -320,7 +316,7 @@ namespace MyNamespace
                     //Save canvas
                     Console.WriteLine("Save canvas");
                     string svg = svgOpen;
-                    for (int i = 0; i < canvas1.getUndoStates().Count; i++)
+                    for (int i = 1; i < canvas1.getUndoStates().Count; i++)
                     {
                         svg += canvas1.getUndoStates()[i].getData();
                     }
