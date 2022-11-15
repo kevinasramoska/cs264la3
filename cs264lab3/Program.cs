@@ -230,25 +230,18 @@ namespace MyNamespace
             canvas canvas1 = new canvas();
             Console.WriteLine( canvas1.getUndoStates());
            
-            
             string svgOpen = @"<svg height=""400"" width=""400"" xmlns=""http://www.w3.org/2000/svg"">" + Environment.NewLine;
             string svgClose = Environment.NewLine + @"</svg>";
- 
-            // Console.WriteLine(" Functonality to set default line and fill styles for individual shape types, for example, default rectangles are grey with black 1pt solid line borders");
+
             bool exit = false;
             Console.Clear();
             while (exit == false)
             {
-                // for (int i = 0; i < canvas.Count; i++)
-                // {
-                //     Console.WriteLine(canvas[i]);
-                //     Console.WriteLine(canvas.Count);
-                // }
                 Console.WriteLine("Canvas created - use commands to add shapes to canvas");
                 
                 char command = char.Parse(Console.ReadLine());
                 if(command == 'H' || command == 'h'){
-                    Console.WriteLine("Commands: H	 	 Help	-	displays	this	message  \nA	<shape>	 Add	<shape	to	canvas	  \n D   - Display Canvas \nU	 	 Undo	last	operation	 \n R	 	 Redo	last	operation	 \n C	 	 Clear	canvas	 \n Q	 	 Quit	application");
+                    Console.WriteLine("Commands:\n H	 	 Help  \nA	<shape>	 Add	<shape	to	canvas	  \n D   - Display Canvas \nU	 	 Undo	last	operation	 \n R	 	 Redo	last	operation	 \n C	 	 Clear	canvas	 \n Q	 	 Quit	application");
                 }
                 else if(command == 'A' || command == 'a'){
                     //Add shape
@@ -295,6 +288,9 @@ namespace MyNamespace
                          canvas1.addMenento(new Memento(line.ToString()));
                         Console.WriteLine("Line added to canvas");
                     }
+                    else{
+                        Console.WriteLine("Invalid shape type");
+                    }
 
                 }
                 else if(command == 'U' || command == 'u'){
@@ -334,342 +330,12 @@ namespace MyNamespace
                 }
                 else if(command == 'Q' || command == 'q'){
                     //Quit application
-                       break;
-                       Console.WriteLine("Quit application");
+                    break;
+                    Console.WriteLine("Quit application");
                 }
-                // Console.WriteLine("0): Exit");
-                // Console.WriteLine("1): Create Rectangle");
-                // Console.WriteLine("2): Create Circle");
-                // Console.WriteLine("3): Create Ellipse");
-                // Console.WriteLine("4): Create Line");
-                // Console.WriteLine("5): Create Polyline");
-                // Console.WriteLine("6): Create Polygon");
-                // Console.WriteLine("7): Create Path");
-                // Console.WriteLine("8): Done and Export to SVG?");
-                // Console.WriteLine("9): Delete Shape");
-                // Console.WriteLine("10): Modify Shape");
-                // Console.WriteLine("11): Move shapes's");
-                // Console.WriteLine("12): Change Shape Color DOESN'T WORK");
-                // Console.WriteLine("13): Show List of Shapes");
-                // Console.WriteLine("14): Undo");
-                // int choice = int.Parse(Console.ReadLine());
-                //Create Rectangle
-                // if (choice == 1)
-                // {
-                //     //create rectangle
-                //     Console.WriteLine("Enter x coordinate: ");
-                //     int x = int.Parse(Console.ReadLine());
-                //     Console.WriteLine("Enter y coordinate: ");
-                //     int y = int.Parse(Console.ReadLine());
-                //     Rectangle rect = new Rectangle(x, y);
-                //     canvas1.addMenento(new Memento(rect.ToString()));
-                // }
-            //     //Create Circle
-            //     else if (choice == 2)
-            //     {
-            //         //Circle
-            //         Console.WriteLine("Enter x coordinate: ");
-            //         int x = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y coordinate: ");
-            //         int y = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter radius: ");
-            //         int radius = int.Parse(Console.ReadLine());
-            //         Circle currentShape = new Circle(x, y, radius);
-            //         canvas.Add(currentShape.ToString());
-
-            //         // undoStates.Add(currentShape.ToString());
-            //     }
-            //     else if (choice == 3)
-            //     {
-            //         //Ellipse
-            //         Console.WriteLine("Enter x coordinate: ");
-            //         int x = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y coordinate: ");
-            //         int y = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter radiusX: ");
-            //         int rx = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter radius Y: ");
-            //         int ry = int.Parse(Console.ReadLine());
-            //         Ellipse currentShape = new Ellipse(x, y, rx, ry);
-            //         canvas.Add(currentShape.ToString());
-                  
-            //     }
-            //     else if (choice == 4)
-            //     {
-            //         //Line
-            //         Console.WriteLine("Enter x1 coordinate: ");
-            //         int x1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y1 coordinate: ");
-            //         int y1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x2 coordinate: ");
-            //         int x2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y2 coordinate: ");
-            //         int y2 = int.Parse(Console.ReadLine());
- 
-            //         Line currentShape = new Line(x1, y1, x2, y2);
-            //         canvas.Add(currentShape.ToString());
- 
-            //     }
-            //     else if (choice == 5)
-            //     {
-            //         //Polyline
-            //         Console.WriteLine("Enter x1 coordinate: ");
-            //         int x1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y1 coordinate: ");
-            //         int y1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x2 coordinate: ");
-            //         int x2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y2 coordinate: ");
-            //         int y2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x3 coordinate: ");
-            //         int x3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y3 coordinate: ");
-            //         int y3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x4 coordinate: ");
-            //         int x4 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y4 coordinate: ");
-            //         int y4 = int.Parse(Console.ReadLine());
- 
-            //         Polyline currentShape = new Polyline(x1, y1, x2, y2, x3, y3, x4, y4);
-            //         canvas.Add(currentShape.ToString());
-            //     }
-            //     else if (choice == 6)
-            //     {
-            //         //Polygon
-            //         Console.WriteLine("Enter x1 coordinate: ");
-            //         int x1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y1 coordinate: ");
-            //         int y1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x2 coordinate: ");
-            //         int x2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y2 coordinate: ");
-            //         int y2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x3 coordinate: ");
-            //         int x3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y3 coordinate: ");
-            //         int y3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x4 coordinate: ");
-            //         int x4 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y4 coordinate: ");
-            //         int y4 = int.Parse(Console.ReadLine());
-            //         Polygon currentShape = new Polygon(x1, y1, x2, y2, x3, y3, x4, y4);
-
-            //     }
-            //     else if (choice == 7)
-            //     {
-            //         //Path
-            //         Console.WriteLine("Enter x1 coordinate: ");
-            //         int x1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y1 coordinate: ");
-            //         int y1 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x2 coordinate: ");
-            //         int x2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y2 coordinate: ");
-            //         int y2 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x3 coordinate: ");
-            //         int y3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y3 coordinate: ");
-            //         int x3 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter x4 coordinate: ");
-            //         int x4 = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Enter y4 coordinate: ");
-            //         int y4 = int.Parse(Console.ReadLine());
- 
-            //         Path currentShape = new Path(x1, y1, x2, y2, x3, y3, x4, y4);
- 
-                    
-            //     }
-            //     else if (choice == 8)
-            //     {
-            //         canvas.Add(svgClose);
- 
-            //         System.IO.File.WriteAllLines("Shape.svg", canvas);
-            //         break;
-            //     }
-            //     else if (choice == 9)
-            //     {
-            //         for (int i = 0; i < canvas.Count; i++)
-            //         {
-            //             Console.WriteLine(i + canvas[i]);
-            //         }
-            //         Console.WriteLine("Enter the number of the shape you want to delete: ");
-            //         int delete = int.Parse(Console.ReadLine());
-            //         canvas.RemoveAt(delete);
-                    
-            //     }
-            //     else if (choice == 10)
-            //     {
-            //         Console.WriteLine("Enter the number of the shape you want to edit: ");
-            //         Console.WriteLine("Here is the list of the shapes you have created: ");
-            //         for (int i = 0; i < canvas.Count; i++)
-            //         {
-            //             Console.WriteLine(i + ")" + " " + canvas[i]);
-            //         }
-            //         Console.WriteLine("Enter the number of the shape you want to edit: ");
-            //         int edit = int.Parse(Console.ReadLine());
-            //         if (canvas[edit].Contains("rect"))
-            //         {
-            //             Console.WriteLine("Enter x coordinate: ");
-            //             int x = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y coordinate: ");
-            //             int y = int.Parse(Console.ReadLine());
-            //             Rectangle currentShape = new Rectangle(x, y);
-            //             String newValue = currentShape.ToString();
- 
- 
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
- 
-            //         }
-            //         else if (canvas[edit].Contains("circle"))
-            //         {
-            //             Console.WriteLine("Enter x coordinate: ");
-            //             int x = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y coordinate: ");
-            //             int y = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter radius: ");
-            //             int radius = int.Parse(Console.ReadLine());
-            //             Circle currentShape = new Circle(x, y, radius);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
-            //         else if (canvas[edit].Contains("ellipse"))
-            //         {
-            //             Console.WriteLine("Enter x coordinate: ");
-            //             int x = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y coordinate: ");
-            //             int y = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter radiusX: ");
-            //             int rx = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter radius Y: ");
-            //             int ry = int.Parse(Console.ReadLine());
-            //             Ellipse currentShape = new Ellipse(x, y, rx, ry);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
-            //         else if (canvas[edit].Contains("line"))
-            //         {
-            //             Console.WriteLine("Enter x1 coordinate: ");
-            //             int x1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y1 coordinate: ");
-            //             int y1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x2 coordinate: ");
-            //             int x2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y2 coordinate: ");
-            //             int y2 = int.Parse(Console.ReadLine());
- 
-            //             Line currentShape = new Line(x1, y1, x2, y2);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
-            //         else if (canvas[edit].Contains("polyline"))
-            //         {
-            //             Console.WriteLine("Enter x1 coordinate: ");
-            //             int x1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y1 coordinate: ");
-            //             int y1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x2 coordinate: ");
-            //             int x2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y2 coordinate: ");
-            //             int y2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x3 coordinate: ");
-            //             int x3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y3 coordinate: ");
-            //             int y3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x4 coordinate: ");
-            //             int x4 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y4 coordinate: ");
-            //             int y4 = int.Parse(Console.ReadLine());
-            //             Polyline currentShape = new Polyline(x1, y1, x2, y2, x3, y3, x4, y4);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
-            //         else if (canvas[edit].Contains("polygon"))
-            //         {
-            //             Console.WriteLine("Enter x1 coordinate: ");
-            //             int x1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y1 coordinate: ");
-            //             int y1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x2 coordinate: ");
-            //             int x2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y2 coordinate: ");
-            //             int y2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x3 coordinate: ");
-            //             int x3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y3 coordinate: ");
-            //             int y3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x4 coordinate: ");
-            //             int x4 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y4 coordinate: ");
-            //             int y4 = int.Parse(Console.ReadLine());
-            //             Polygon currentShape = new Polygon(x1, y1, x2, y2, x3, y3, x4, y4);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
-            //         else if (canvas[edit].Contains("path"))
-            //         {
-            //             Console.WriteLine("Enter x1 coordinate: ");
-            //             int x1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y1 coordinate: ");
-            //             int y1 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x2 coordinate: ");
-            //             int x2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y2 coordinate: ");
-            //             int y2 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x3 coordinate: ");
-            //             int x3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y3 coordinate: ");
-            //             int y3 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter x4 coordinate: ");
-            //             int x4 = int.Parse(Console.ReadLine());
-            //             Console.WriteLine("Enter y4 coordinate: ");
-            //             int y4 = int.Parse(Console.ReadLine());
-            //             Path currentShape = new Path(x1, y1, x2, y2, x3, y3, x4, y4);
-            //             String newValue = currentShape.ToString();
-            //             canvas.RemoveAt(edit);
-            //             canvas.Insert(edit, newValue);
-            //         }
- 
-            //     }
-            //     else if (choice == 11)
-            //     {
-            //         Console.WriteLine("Enter the zIndex of the shape you want to move: ");
-            //         int move = int.Parse(Console.ReadLine());
-            //         Console.WriteLine("Where do you want to move it?");
-            //         int newIndex = int.Parse(Console.ReadLine());
-            //         string temp = canvas[move];
-            //         canvas.RemoveAt(move);
-            //         canvas.Insert(newIndex, temp);
-            //     }
-            //     else if (choice == 12)
-            //     {
-            //         Console.WriteLine("Enter the number of the shape you want to resize: ");
-            //         int resize = int.Parse(Console.ReadLine());
-            //     }
-            //     else if (choice == 13)
-            //     {
-            //         Console.WriteLine("Here is the list of the shapes you have created: ");
-            //         for (int i = 0; i < canvas.Count; i++)
-            //         {
-            //             Console.WriteLine(i + ")" + " " + canvas[i]);
-            //         }
-            //     }
-            //     else if(choice==14){
-                   
-            //     }
-            //     else if (choice == 0)
-            //     {
-            //         break;
-            //     }
-            //     else
-            //     {
-            //         Console.WriteLine("Invalid choice");
-            //     }
+                else{
+                    Console.WriteLine("Invalid command");
+                }
             }
         }
     }

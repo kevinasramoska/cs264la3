@@ -1,0 +1,108 @@
+@startuml
+class Shapes {
+    {static} Main(args:string[]) : void
+}
+interface Shape {
+    ToString() : string
+}
+class Circle {
+    + radius : int <<get>> <<set>>
+    + x : int <<get>> <<set>>
+    + y : int <<get>> <<set>>
+    + Circle(x:int, y:int, radius:int)
+    + <<override>> ToString() : string
+}
+class Rectangle {
+    + x : int <<get>> <<set>>
+    + y : int <<get>> <<set>>
+    + Rectangle(x:int, y:int)
+    + <<override>> ToString() : string
+}
+class Ellipse {
+    + rx : int <<get>> <<set>>
+    + ry : int <<get>> <<set>>
+    + x : int <<get>> <<set>>
+    + y : int <<get>> <<set>>
+    + Ellipse(x:int, y:int, rx:int, ry:int)
+    + <<override>> ToString() : string
+}
+class Line {
+    + x1 : int <<get>> <<set>>
+    + y1 : int <<get>> <<set>>
+    + x2 : int <<get>> <<set>>
+    + y2 : int <<get>> <<set>>
+    + Line(x1:int, y1:int, x2:int, y2:int)
+    + <<override>> ToString() : string
+}
+class Polyline {
+    + x1 : int <<get>> <<set>>
+    + y1 : int <<get>> <<set>>
+    + x2 : int <<get>> <<set>>
+    + y2 : int <<get>> <<set>>
+    + x3 : int <<get>> <<set>>
+    + y3 : int <<get>> <<set>>
+    + x4 : int <<get>> <<set>>
+    + y4 : int <<get>> <<set>>
+    + Polyline(x1:int, y1:int, x2:int, y2:int, x3:int, y3:int, x4:int, y4:int)
+    + <<override>> ToString() : string
+}
+class Polygon {
+    + x1 : int <<get>> <<set>>
+    + y1 : int <<get>> <<set>>
+    + x2 : int <<get>> <<set>>
+    + x3 : int <<get>> <<set>>
+    + y2 : int <<get>> <<set>>
+    + y3 : int <<get>> <<set>>
+    + x4 : int <<get>> <<set>>
+    + y4 : int <<get>> <<set>>
+    + Polygon(x1:int, y1:int, x2:int, y2:int, x3:int, y3:int, x4:int, y4:int)
+    + <<override>> ToString() : string
+}
+class Path {
+    + x1 : int <<get>> <<set>>
+    + y1 : int <<get>> <<set>>
+    + x2 : int <<get>> <<set>>
+    + y2 : int <<get>> <<set>>
+    + x3 : int <<get>> <<set>>
+    + y3 : int <<get>> <<set>>
+    + x4 : int <<get>> <<set>>
+    + y4 : int <<get>> <<set>>
+    + Path(x1:int, y1:int, x2:int, y2:int, x3:int, y3:int, x4:int, y4:int)
+    + <<override>> ToString() : string
+}
+class Memento {
+    + shape : string
+    + Memento(data:string)
+    + getData() : string
+}
+class canvas {
+    + canvas()
+    + redo() : void
+    + addMenento(newshape:Memento) : void
+    + removeMenento() : void
+    + getMemento(index:int) : Memento
+    + getUndoStates() : List<Memento>
+    + clearCanvas() : void
+}
+class "List`1"<T> {
+}
+Shapes +-- Shape
+Shapes +-- Circle
+Shape <|-- Circle
+Shapes +-- Rectangle
+Shape <|-- Rectangle
+Shapes +-- Ellipse
+Shape <|-- Ellipse
+Shapes +-- Line
+Shape <|-- Line
+Shapes +-- Polyline
+Shape <|-- Polyline
+Shapes +-- Polygon
+Shape <|-- Polygon
+Shapes +-- Path
+Shape <|-- Path
+Shapes +-- Memento
+Shapes +-- canvas
+canvas o-> "undoStates<Memento>" "List`1"
+canvas o-> "redoHistory<Memento>" "List`1"
+@enduml

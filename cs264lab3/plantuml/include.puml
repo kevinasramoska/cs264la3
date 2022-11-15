@@ -1,0 +1,6 @@
+@startuml
+!include .\\Program.puml
+!include .\\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.puml
+!include .\\obj\Debug\net6.0\cs264lab3.AssemblyInfo.puml
+!include .\\obj\Debug\net6.0\cs264lab3.GlobalUsings.g.puml
+@enduml
