@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kevinas/Desktop/cs264lab3/cs264lab3.csproj",
+      "projectUniqueName": "/home/kevinas/Desktop/cs264lab3/cs264lab3/cs264lab3.csproj",
       "projectName": "cs264lab3",
-      "projectPath": "/home/kevinas/Desktop/cs264lab3/cs264lab3.csproj",
+      "projectPath": "/home/kevinas/Desktop/cs264lab3/cs264lab3/cs264lab3.csproj",
       "packagesPath": "/home/kevinas/.nuget/packages/",
-      "outputPath": "/home/kevinas/Desktop/cs264lab3/obj/",
+      "outputPath": "/home/kevinas/Desktop/cs264lab3/cs264lab3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kevinas/.nuget/NuGet/NuGet.Config"

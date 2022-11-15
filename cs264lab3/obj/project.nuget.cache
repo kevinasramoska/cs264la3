@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "74EgzZUyHdehsMTsRlTX4NGokonWZe9Hymda3GWejXvEsNlZAPnWisbttbIaszKH7mz3eP3HJWkKe92/pJA8Bg==",
+  "dgSpecHash": "PRAuiCkFSy8oFPS82M9c2sqP73akP7KucNWuT+juEauaBT825TTBbgWicgU5tadMLpYUFYLxYrq24VE7nPTzBA==",
   "success": true,
-  "projectFilePath": "/home/kevinas/Desktop/cs264lab3/cs264lab3.csproj",
+  "projectFilePath": "/home/kevinas/Desktop/cs264lab3/cs264lab3/cs264lab3.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
