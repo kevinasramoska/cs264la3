@@ -223,6 +223,10 @@ namespace MyNamespace
                 undoStates.Clear();
                 redoHistory.Clear();
             }
+            public int canvaslength(){
+                return undoStates.Count;
+            }
+       
         }
         //This is the originator class
         static void Main(string[] args)
@@ -316,9 +320,9 @@ namespace MyNamespace
                     //Save canvas
                     Console.WriteLine("Save canvas");
                     string svg = svgOpen;
-                    for (int i = 1; i < canvas1.getUndoStates().Count; i++)
+                    for (int i = 0; i < canvas1.canvaslength() ; i++)
                     {
-                        svg += canvas1.getUndoStates()[i].getData();
+                        svg += canvas1.getMemento(i).getData();
                     }
                     svg += svgClose;
                     Console.WriteLine(svg);
